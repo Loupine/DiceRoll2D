@@ -1,3 +1,20 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 639.5, 24 )
 
 [node name="World" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( 648, 617 )
+
+[node name="FloorCollision" type="CollisionShape2D" parent="Floor"]
+position = Vector2( -8.5, 0 )
+shape = SubResource( 1 )
+
+[node name="Ceiling" type="StaticBody2D" parent="."]
+position = Vector2( 648, 617 )
+
+[node name="CeilingCollision" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2( -8, -594 )
+shape = SubResource( 1 )
