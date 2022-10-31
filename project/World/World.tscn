@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1197, 24 )
 
-[node name="World" type="Node2D"]
+[node name="World" type="Control"]
 script = ExtResource( 3 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -34,4 +34,14 @@ position = Vector2( 133, 343 )
 wait_time = 3.0
 autostart = true
 
+[node name="RestartButton" type="Button" parent="."]
+margin_left = -800.0
+margin_top = 317.0
+margin_right = -645.0
+margin_bottom = 337.0
+rect_scale = Vector2( 3, 3 )
+text = "Game Over! Try again?"
+
+[connection signal="player_died" from="Player" to="." method="_on_Player_player_died"]
 [connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_ObstacleSpawnTimer_timeout"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]

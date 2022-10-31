@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 
+signal player_died
+
 const GRAVITY := 0.98
 const JUMP_FORCE := 25
 
@@ -29,4 +31,4 @@ func die()-> void:
 	scale.y = .10
 	position.y = 590
 	is_alive = false
-	
+	emit_signal("player_died")
