@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Obstacles/BallObstacle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/World.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1197, 24 )
 
 [node name="World" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 648, 617 )
@@ -29,5 +30,8 @@ shape = SubResource( 1 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 133, 343 )
 
-[node name="BallObstacle" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1316, 477 )
+[node name="ObstacleSpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_ObstacleSpawnTimer_timeout"]

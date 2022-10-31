@@ -4,6 +4,11 @@ extends KinematicBody2D
 var velocity := Vector2.ZERO
 
 
+func _ready()-> void:
+	position.y = 490
+	position.x = 1700
+
+
 func _physics_process(_delta : float)-> void:
 	velocity.y = 0
 	velocity.x = -700
