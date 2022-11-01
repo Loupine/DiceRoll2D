@@ -16,10 +16,16 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="FloorLayer" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2( 1024, 0 )
+motion_mirroring = Vector2( 2048, 0 )
 
 [node name="FloorBackground" type="Sprite" parent="FloorLayer"]
-position = Vector2( 0, 594.162 )
+position = Vector2( 0, 594 )
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="FloorBackground2" type="Sprite" parent="FloorLayer"]
+position = Vector2( 1024, 594 )
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 3 )
 centered = false
