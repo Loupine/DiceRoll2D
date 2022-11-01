@@ -42,6 +42,14 @@ margin_bottom = 337.0
 rect_scale = Vector2( 3, 3 )
 text = "Game Over! Try again?"
 
+[node name="MenuButton" type="Button" parent="."]
+margin_left = -720.0
+margin_top = 381.0
+margin_right = -617.0
+margin_bottom = 401.0
+rect_scale = Vector2( 3, 3 )
+text = "Quit to Menu?"
+
 [node name="ScoreLabel" type="Label" parent="."]
 margin_left = 550.0
 margin_top = 4.0
@@ -55,3 +63,4 @@ valign = 1
 [connection signal="player_died" from="Player" to="." method="_on_Player_player_died"]
 [connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_ObstacleSpawnTimer_timeout"]
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]
