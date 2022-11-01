@@ -20,7 +20,8 @@ func _process(_delta)-> void:
 func _on_ObstacleSpawnTimer_timeout()-> void:
 	var newObstacle := ball_obstacle_preload.instance()
 	add_child(newObstacle)
-	obstacle_spawn_timer.start()
+	if player_died == false:
+		obstacle_spawn_timer.start()
 
 
 func _on_Player_player_died()-> void:
@@ -39,4 +40,3 @@ func _on_MenuButton_pressed()-> void:
 
 func _on_OutOfBoundsArea_body_entered(body : PhysicsBody2D):
 	body.queue_free()
-	print("Deleted Obstacle")
