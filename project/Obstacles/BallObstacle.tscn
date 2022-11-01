@@ -38,7 +38,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 101.005
+radius = 105.304
 
 [node name="BallObstacle" type="KinematicBody2D"]
 collision_layer = 2
