@@ -25,7 +25,6 @@ func _physics_process(delta : float)-> void:
 			has_touched_floor = true
 	else:
 		velocity.y = 0.0 if position.y >= 591 else velocity.y + GRAVITY / delta
-		position.x = 134
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 
@@ -36,7 +35,8 @@ func set_bounce_force()-> int:
 
 
 func die()-> void:
-	playerCollision.call_deferred("set_disabled", true)
+	set_collision_layer_bit(0, false)
+	set_collision_mask_bit(0, false)
 	scale.y = .10
 	is_alive = false
 	animator.stop()
