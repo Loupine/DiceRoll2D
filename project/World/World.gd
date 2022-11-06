@@ -34,6 +34,7 @@ func create_new_obstacle()-> void:
 
 func _on_ObstacleSpawnTimer_timeout()-> void:
 	create_new_obstacle()
+	obstacle_spawn_timer.start(rand_range(1, 4))
 	if player_died == true:
 		obstacle_spawn_timer.stop()
 
