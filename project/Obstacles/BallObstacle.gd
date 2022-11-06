@@ -11,7 +11,7 @@ func _ready()-> void:
 
 func _physics_process(_delta : float)-> void:
 	velocity.y = 0
-	velocity.x = -700
+	velocity.x = rand_range(-2000, -700)
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 
