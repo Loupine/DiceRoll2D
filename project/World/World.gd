@@ -4,6 +4,7 @@ extends Control
 var player_died := false
 var score := 0
 
+onready var music_player : AudioStreamPlayer = get_node("/root/MusicPlayer")
 onready var ball_obstacle_preload := preload("res://Obstacles/BallObstacle.tscn")
 onready var scissors_obstacle_preload := preload("res://Obstacles/ScissorsObstacle.tscn")
 onready var obstacle_spawn_timer := get_node("ObstacleSpawnTimer")
@@ -14,6 +15,7 @@ onready var score_label := get_node("ScoreLabel")
 
 func _ready()-> void:
 	randomize()
+	music_player.play(0)
 
 
 func _process(_delta)-> void:
@@ -55,3 +57,4 @@ func _on_Player_player_died()-> void:
 	restart_button.rect_position.x = 400
 	menu_button.rect_position.x = 460
 	player_died = true
+	music_player.stop()

@@ -16,7 +16,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-PlayerAudio="*res://PlayerAudio/PlayerAudio.tscn"
+PlayerAudio="*res://Player/PlayerAudio/PlayerAudio.tscn"
+MusicPlayer="*res://World/Music/MusicPlayer.tscn"
 
 [display]
 
