@@ -89,7 +89,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 94.5, 61.5 )
+extents = Vector2( 80.25, 46 )
 
 [node name="ScissorsObstacle" type="KinematicBody2D"]
 script = ExtResource( 3 )
@@ -117,7 +117,7 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="AreaCollision" type="CollisionShape2D" parent="CutArea"]
-position = Vector2( -75, 33 )
+position = Vector2( -89.25, 33 )
 shape = SubResource( 5 )
 
 [connection signal="body_entered" from="CutArea" to="." method="_on_CutArea_body_entered"]

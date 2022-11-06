@@ -4,7 +4,7 @@
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 53.6004
+radius = 48.0416
 
 [sub_resource type="Animation" id=3]
 length = 0.001

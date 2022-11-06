@@ -12,6 +12,10 @@ onready var menu_button := get_node("MenuButton")
 onready var score_label := get_node("ScoreLabel")
 
 
+func _ready()-> void:
+	randomize()
+
+
 func _process(_delta)-> void:
 	if player_died == false:
 		score += 1

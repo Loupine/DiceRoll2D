@@ -5,7 +5,7 @@ var velocity := Vector2.ZERO
 
 
 func _ready()-> void:
-	position.y = 490
+	position.y = rand_range(90, 500)
 	position.x = 1700
 
 
