@@ -12,15 +12,18 @@ var velocity := Vector2.ZERO
 
 onready var playerCollision : CollisionShape2D = get_node("CollisionShape2D")
 onready var animator : AnimationPlayer = get_node("AnimationPlayer")
+onready var player_audio : AudioStreamPlayer = get_node("/root/PlayerAudio")
 
 
 func _physics_process(delta : float)-> void:
 	if is_alive:
 		velocity.y = 0.0 if is_on_floor() else velocity.y + GRAVITY / delta
 		if Input.is_action_pressed("jump") and has_touched_floor:
+			player_audio.call("set_audio_stream", "jump")
 			velocity.y = -JUMP_FORCE / delta
 			has_touched_floor = false
 		if is_on_floor():
+			player_audio.call("set_audio_stream", "land")
 			velocity.y = -set_bounce_force() / delta
 			has_touched_floor = true
 	else:
