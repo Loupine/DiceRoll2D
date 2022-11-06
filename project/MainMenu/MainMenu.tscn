@@ -43,4 +43,14 @@ custom_constants/shadow_as_outline = 1
 text = "Press space to jump!"
 align = 1
 
+[node name="CreditLabel" type="Label" parent="."]
+margin_left = 4.0
+margin_top = 641.0
+margin_right = 1280.0
+margin_bottom = 718.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+text = "Siberian Herds music from freesfx.co.uk"
+align = 1
+
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
