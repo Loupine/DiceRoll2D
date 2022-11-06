@@ -19,7 +19,6 @@ func _process(_delta)-> void:
 
 
 func create_new_obstacle()-> void:
-	randomize()
 	var obstacle_number := randi() % 2 + 1
 	var new_obstacle : PhysicsBody2D
 	if obstacle_number == 1:
@@ -31,8 +30,8 @@ func create_new_obstacle()-> void:
 
 func _on_ObstacleSpawnTimer_timeout()-> void:
 	create_new_obstacle()
-	if player_died == false:
-		obstacle_spawn_timer.start()
+	if player_died == true:
+		obstacle_spawn_timer.stop()
 
 
 func _on_RestartButton_pressed()-> void:
