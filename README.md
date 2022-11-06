@@ -6,7 +6,7 @@
 - Wood sprite from [Robert Brooks' Wooden Physics Blocks](https://www.gamedeveloperstudio.com/graphics/viewgraphic.php?page-name=Wooden-physics-blocks&item=1d4m810z4w5d2e863c) and licensed under the [Game Developer Studio Standard License](https://www.gamedeveloperstudio.com/license.php)
 - Background sprites from [acrock's Unique Pattern Background Asset Pack](https://acrock.itch.io/pattern-bg-asset-acrock), [acrock's Unique Pattern Background Asset Pack2](https://acrock.itch.io/pattern-bg2-asset-acrock), and [acrock's Sparkling Texture BG](https://acrock.itch.io/sparkinlg-bg-asset-acrock) all licensed as free as of October 30th, 2022.
 - Die sprite from [Aeynit's Fantasy Dices Pack](https://aeynit.itch.io/fantasy-dices-pack) licensed as free for any project "commercial or not" as of October 30th, 2022.
-
+- Siberian Herds music from [freesfx.co.uk](https://www.freesfx.co.uk/Category/Technological/231) page 2 and licensed under the [Free SFX / Free Music Tracks terms](https://www.freesfx.co.uk/Music.aspx)
 
 ## Project Report:
 
