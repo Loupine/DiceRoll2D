@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-var velocity := Vector2.ZERO
+var _velocity := Vector2.ZERO
 
 
 func _ready()-> void:
@@ -10,9 +10,9 @@ func _ready()-> void:
 
 
 func _physics_process(_delta : float)-> void:
-	velocity.y = 0
-	velocity.x = rand_range(-2000, -700)
-	velocity = move_and_slide(velocity, Vector2.UP)
+	_velocity.y = 0
+	_velocity.x = rand_range(-2000, -700)
+	_velocity = move_and_slide(_velocity, Vector2.UP)
 
 
 func _on_BallArea_body_entered(body : PhysicsBody2D)-> void:
