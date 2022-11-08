@@ -5,7 +5,7 @@
 [ext_resource path="res://Obstacles/ScissorsObstacle.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 39, 40 )
+extents = Vector2( 19.5, 15 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Cutting"
@@ -95,7 +95,7 @@ extents = Vector2( 80.25, 46 )
 script = ExtResource( 3 )
 
 [node name="TopCollision" type="CollisionShape2D" parent="."]
-position = Vector2( -50, 39 )
+position = Vector2( -57.5, 36 )
 shape = SubResource( 1 )
 
 [node name="ScissorsTop" type="Sprite" parent="."]

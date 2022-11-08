@@ -4,7 +4,7 @@
 [ext_resource path="res://Obstacles/BallObstacle.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 92.0217
+radius = 87.0919
 
 [sub_resource type="Animation" id=2]
 length = 0.001
