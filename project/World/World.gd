@@ -11,6 +11,7 @@ onready var obstacle_spawn_timer := get_node("ObstacleSpawnTimer")
 onready var restart_button := get_node("RestartButton")
 onready var menu_button := get_node("MenuButton")
 onready var score_label := get_node("ScoreLabel")
+onready var background := get_node("ParallaxBackground")
 
 
 func _ready()-> void:
@@ -35,10 +36,11 @@ func create_new_obstacle()-> void:
 
 
 func _on_ObstacleSpawnTimer_timeout()-> void:
-	create_new_obstacle()
-	obstacle_spawn_timer.start(rand_range(1, 4))
 	if player_died == true:
 		obstacle_spawn_timer.stop()
+	else:
+		create_new_obstacle()
+		obstacle_spawn_timer.start(rand_range(1, 4))
 
 
 func _on_RestartButton_pressed()-> void:
@@ -49,7 +51,7 @@ func _on_MenuButton_pressed()-> void:
 	var _ignored := get_tree().change_scene("res://MainMenu/MainMenu.tscn")
 
 
-func _on_OutOfBoundsArea_body_entered(body : PhysicsBody2D):
+func _on_OutOfBoundsArea_body_entered(body : PhysicsBody2D)-> void:
 	body.queue_free()
 
 
@@ -58,3 +60,4 @@ func _on_Player_player_died()-> void:
 	menu_button.rect_position.x = 460
 	player_died = true
 	music_player.stop()
+	background.call("stop_parallax")
