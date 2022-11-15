@@ -1,13 +1,14 @@
 extends Control
 
-
 var _player_died := false
 var _score := 0
+var _speed_modifier := 0.5
 
 onready var _music_player : AudioStreamPlayer = get_node("/root/MusicPlayer")
 onready var _ball_obstacle_preload := preload("res://Obstacles/BallObstacle.tscn")
 onready var _scissors_obstacle_preload := preload("res://Obstacles/ScissorsObstacle.tscn")
 onready var _obstacle_spawn_timer := get_node("ObstacleSpawnTimer")
+onready var _speed_modifier_increase_timer := get_node("SpeedModifierIncreaseTimer")
 onready var _restart_button := get_node("RestartButton")
 onready var _menu_button := get_node("MenuButton")
 onready var _score_label := get_node("ScoreLabel")
@@ -32,15 +33,20 @@ func _create_new_obstacle()-> void:
 		new_obstacle = _ball_obstacle_preload.instance()
 	else:
 		new_obstacle = _scissors_obstacle_preload.instance()
+	new_obstacle.call("modify_speed", _speed_modifier)
 	add_child(new_obstacle)
 
 
 func _on_ObstacleSpawnTimer_timeout()-> void:
-	if _player_died == true:
-		_obstacle_spawn_timer.stop()
-	else:
-		_create_new_obstacle()
-		_obstacle_spawn_timer.start(rand_range(1, 4))
+	_create_new_obstacle()
+	_obstacle_spawn_timer.stop()
+
+
+func _on_SpeedModifierIncreaseTimer_timeout()-> void:
+	_speed_modifier += .005
+	if _speed_modifier >= 2.5:
+		_speed_modifier_increase_timer.stop()
+	_background.call("increase_scroll_velocity")
 
 
 func _on_RestartButton_pressed()-> void:
@@ -53,6 +59,7 @@ func _on_MenuButton_pressed()-> void:
 
 func _on_OutOfBoundsArea_body_entered(body : PhysicsBody2D)-> void:
 	body.queue_free()
+	_obstacle_spawn_timer.start(rand_range(1, 6 / _speed_modifier))
 
 
 func _on_Player_player_died()-> void:
@@ -61,3 +68,5 @@ func _on_Player_player_died()-> void:
 	_player_died = true
 	_music_player.stop()
 	_background.call("stop_parallax")
+	_obstacle_spawn_timer.stop()
+	_speed_modifier_increase_timer.stop()

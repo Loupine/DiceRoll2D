@@ -53,9 +53,11 @@ collision_mask = 8
 position = Vector2( 198, 313 )
 shape = SubResource( 3 )
 
-[node name="ObstacleSpawnTimer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
+[node name="OutOfBoundsArea" type="Area2D" parent="."]
+
+[node name="OutOfBoundsCollision" type="CollisionShape2D" parent="OutOfBoundsArea"]
+position = Vector2( -447, 322 )
+shape = SubResource( 2 )
 
 [node name="RestartButton" type="Button" parent="."]
 margin_left = -800.0
@@ -85,14 +87,17 @@ valign = 1
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
 
-[node name="OutOfBoundsArea" type="Area2D" parent="."]
+[node name="ObstacleSpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
 
-[node name="OutOfBoundsCollision" type="CollisionShape2D" parent="OutOfBoundsArea"]
-position = Vector2( -447, 322 )
-shape = SubResource( 2 )
+[node name="SpeedModifierIncreaseTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
 
 [connection signal="player_died" from="Player" to="." method="_on_Player_player_died"]
-[connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_ObstacleSpawnTimer_timeout"]
+[connection signal="body_entered" from="OutOfBoundsArea" to="." method="_on_OutOfBoundsArea_body_entered"]
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]
-[connection signal="body_entered" from="OutOfBoundsArea" to="." method="_on_OutOfBoundsArea_body_entered"]
+[connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_ObstacleSpawnTimer_timeout"]
+[connection signal="timeout" from="SpeedModifierIncreaseTimer" to="." method="_on_SpeedModifierIncreaseTimer_timeout"]
