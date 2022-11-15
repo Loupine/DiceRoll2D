@@ -13,6 +13,7 @@ onready var _restart_button := get_node("RestartButton")
 onready var _menu_button := get_node("MenuButton")
 onready var _score_label := get_node("ScoreLabel")
 onready var _background := get_node("ParallaxBackground")
+onready var _player := get_node("Player")
 
 
 func _ready()-> void:
@@ -47,6 +48,7 @@ func _on_SpeedModifierIncreaseTimer_timeout()-> void:
 	if _speed_modifier >= 2.5:
 		_speed_modifier_increase_timer.stop()
 	_background.call("increase_scroll_velocity")
+	_player.call("increase_animation_speed")
 
 
 func _on_RestartButton_pressed()-> void:

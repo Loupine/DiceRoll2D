@@ -37,6 +37,10 @@ func _set_bounce_force()-> int:
 	return randi() % 10
 
 
+func increase_animation_speed()-> void:
+	_animator.playback_speed += .0005
+
+
 func die()-> void:
 	set_collision_layer_bit(0, false)
 	set_collision_mask_bit(0, false)
