@@ -13,7 +13,7 @@ onready var _restart_button := get_node("RestartButton")
 onready var _menu_button := get_node("MenuButton")
 onready var _score_label := get_node("ScoreLabel")
 onready var _background := get_node("ParallaxBackground")
-onready var _player := get_node("Player")
+onready var _player : KinematicBody2D = get_node("Player")
 
 
 func _ready()-> void:
@@ -29,13 +29,16 @@ func _process(_delta)-> void:
 
 func _create_new_obstacle()-> void:
 	var obstacle_number := randi() % 2 + 1
-	var new_obstacle : PhysicsBody2D
+	var new_ball_obstacle : PhysicsBody2D
+	var new_scissors_obstacle
 	if obstacle_number == 1:
-		new_obstacle = _ball_obstacle_preload.instance()
-	else:
-		new_obstacle = _scissors_obstacle_preload.instance()
-	new_obstacle.call("modify_speed", _speed_modifier)
-	add_child(new_obstacle)
+		new_ball_obstacle = _ball_obstacle_preload.instance()
+		new_ball_obstacle.call("modify_speed", _speed_modifier)
+		add_child(new_ball_obstacle)
+	elif obstacle_number == 2:
+		new_scissors_obstacle = _scissors_obstacle_preload.instance()
+		add_child(new_scissors_obstacle)
+		new_scissors_obstacle.call("move_to_player", _speed_modifier)
 
 
 func _on_ObstacleSpawnTimer_timeout()-> void:

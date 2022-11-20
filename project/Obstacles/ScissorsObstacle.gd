@@ -1,25 +1,19 @@
 extends KinematicBody2D
 
 
-var _velocity := Vector2.ZERO
-var _speed_modifier : float
-var _speed : float
-
-
 func _ready()-> void:
-	position.y = rand_range(90, 500)
+	position.y = rand_range(120, 480)
 	position.x = 1700
-	_speed = -1000
 
 
-func _physics_process(_delta : float)-> void:
-	_velocity.y = 0
-	_velocity.x = _speed * _speed_modifier
-	_velocity = move_and_slide(_velocity, Vector2.UP)
-
-
-func modify_speed(_current_speed_modifier : float)-> void:
-	_speed_modifier = _current_speed_modifier
+func move_to_player(speed_modifier : float)-> void:
+	var target_position := Vector2(400, position.y)
+	var final_position := Vector2(-400, position.y)
+	var time_to_move := 4.0 / speed_modifier
+	var tween := create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN_OUT)
+	var _property_tweener := tween.tween_property(self, "position", target_position, time_to_move)
+	var _interval_tweener := tween.tween_interval(1)
+	_property_tweener = tween.tween_property(self, "position", final_position, 1)
 
 
 func _on_CutArea_body_entered(body : PhysicsBody2D)-> void:
