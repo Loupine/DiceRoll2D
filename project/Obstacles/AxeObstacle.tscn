@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Obstacles/ObstacleSprites/axe.png" type="Texture" id=1]
 [ext_resource path="res://Obstacles/AxeObstacle.gd" type="Script" id=2]
+[ext_resource path="res://Obstacles/ObstacleAudio/axe_air_whoosh_sound_effect.ogg" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 174, 170 )
@@ -83,5 +84,9 @@ shape = SubResource( 1 )
 autoplay = "spin_and_move"
 anims/RESET = SubResource( 4 )
 anims/spin_and_move = SubResource( 5 )
+
+[node name="AxeAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+pitch_scale = 0.4
 
 [connection signal="body_entered" from="AxeArea" to="." method="_on_AxeArea_body_entered"]

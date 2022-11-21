@@ -1,9 +1,12 @@
 extends KinematicBody2D
 
+onready var audio_player : AudioStreamPlayer2D = get_node("AxeAudioPlayer")
+
 
 func _ready()-> void:
 	position.x = 1700
 	position.y = rand_range(110, 480)
+	audio_player.play(0)
 
 
 func move_to_player(speed_modifier : float)-> void:
