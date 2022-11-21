@@ -31,7 +31,7 @@ func _process(_delta)-> void:
 
 
 func _create_new_obstacle()-> void:
-	var obstacle_number := 5#randi() % 5 + 1
+	var obstacle_number := randi() % 5 + 1
 	if obstacle_number == 1:
 		var new_ball_obstacle : PhysicsBody2D = _ball_obstacle_preload.instance()
 		new_ball_obstacle.call("set_speed", _speed_modifier)
