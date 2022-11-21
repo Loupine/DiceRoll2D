@@ -29,7 +29,7 @@ func _process(_delta)-> void:
 
 
 func _create_new_obstacle()-> void:
-	var obstacle_number := 3 #randi() % 3 + 1
+	var obstacle_number := randi() % 3 + 1
 	var new_ball_obstacle : PhysicsBody2D
 	var new_scissors_obstacle : PhysicsBody2D
 	var new_mallet_obstacle : PhysicsBody2D
@@ -48,7 +48,8 @@ func _create_new_obstacle()-> void:
 
 
 func _on_ObstacleSpawnTimer_timeout()-> void:
-	_create_new_obstacle()
+	if _player_died == false:
+		_create_new_obstacle()
 	_obstacle_spawn_timer.stop()
 
 
@@ -79,5 +80,4 @@ func _on_Player_player_died()-> void:
 	_player_died = true
 	_music_player.stop()
 	_background.call("stop_parallax")
-	_obstacle_spawn_timer.stop()
 	_speed_modifier_increase_timer.stop()
