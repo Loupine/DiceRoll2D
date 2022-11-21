@@ -92,6 +92,8 @@ tracks/3/keys = {
 extents = Vector2( 80.25, 46 )
 
 [node name="ScissorsObstacle" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource( 3 )
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
