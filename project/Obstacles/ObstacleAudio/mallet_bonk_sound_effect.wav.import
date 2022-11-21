@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mallet_bonk_sound_effect.wav-c6f071b7e07f497ad66bf77429280c95.sample"
+
+[deps]
+
+source_file="res://Obstacles/ObstacleAudio/mallet_bonk_sound_effect.wav"
+dest_files=[ "res://.import/mallet_bonk_sound_effect.wav-c6f071b7e07f497ad66bf77429280c95.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

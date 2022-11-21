@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/axe_air_whoosh_sound_effect.ogg-6960a4e88aa13688b8360b68d565aec9.oggstr"
+
+[deps]
+
+source_file="res://Obstacles/ObstacleAudio/axe_air_whoosh_sound_effect.ogg"
+dest_files=[ "res://.import/axe_air_whoosh_sound_effect.ogg-6960a4e88aa13688b8360b68d565aec9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=1.0
