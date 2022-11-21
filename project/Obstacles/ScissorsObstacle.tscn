@@ -94,7 +94,7 @@ extents = Vector2( 80.25, 46 )
 [node name="ScissorsObstacle" type="KinematicBody2D"]
 script = ExtResource( 3 )
 
-[node name="TopCollision" type="CollisionShape2D" parent="."]
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
 position = Vector2( -57.5, 36 )
 shape = SubResource( 1 )
 
