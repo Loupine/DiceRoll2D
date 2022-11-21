@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Background/ParallaxBackground.tscn" type="PackedScene" id=2]
@@ -7,14 +7,14 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1197, 15 )
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 13, 284 )
-
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 62.5, 266 )
 
 [node name="World" type="Control"]
 script = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 133, 343 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 648, 617 )
@@ -24,34 +24,6 @@ collision_mask = 9
 [node name="FloorCollision" type="CollisionShape2D" parent="Floor"]
 position = Vector2( 42, 0 )
 shape = SubResource( 1 )
-
-[node name="Ceiling" type="StaticBody2D" parent="."]
-position = Vector2( 648, 617 )
-collision_layer = 5
-collision_mask = 5
-
-[node name="CeilingCollision" type="CollisionShape2D" parent="Ceiling"]
-position = Vector2( 23, -606.5 )
-shape = SubResource( 1 )
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 133, 343 )
-
-[node name="PlayerLeftBoundary" type="StaticBody2D" parent="."]
-collision_layer = 8
-collision_mask = 8
-
-[node name="LeftBoundaryCollision" type="CollisionShape2D" parent="PlayerLeftBoundary"]
-position = Vector2( 69, 313 )
-shape = SubResource( 3 )
-
-[node name="PlayerRightBoundary" type="StaticBody2D" parent="."]
-collision_layer = 8
-collision_mask = 8
-
-[node name="RightBoundaryCollision" type="CollisionShape2D" parent="PlayerRightBoundary"]
-position = Vector2( 198, 313 )
-shape = SubResource( 3 )
 
 [node name="OutOfBoundsArea" type="Area2D" parent="."]
 collision_layer = 3

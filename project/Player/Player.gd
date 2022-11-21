@@ -34,6 +34,8 @@ func _physics_process(delta : float)-> void:
 		_velocity.y = 0.0 if position.y >= 591 else _velocity.y + _GRAVITY / delta
 	
 	_velocity = move_and_slide(_velocity, Vector2.UP)
+	position.x = clamp(position.x, 132.9, 133)
+	position.y = clamp(position.y, 54, 800)
 
 
 func _set_bounce_force()-> int:
