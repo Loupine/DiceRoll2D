@@ -1,4 +1,4 @@
-# Final Project DiceRoll Iteration 1:
+# Final Project DiceRoll Iteration 2:
 
 ## First Party Assets
 
@@ -18,7 +18,7 @@
 
 ### Reflection
 
-
+Overall, this iteration went relatively well with the exception of the prior week where I had less time to work than I would have liked to spend. I had a few issues in coding the behavior of each obstacle which initially slowed me down until I got the hang of it. During this iteration, I got used to tweening and used it for almost every animation besides the ball and the mallet. I was able to finish everything this iteration except adding power-ups for the player, so that will be included in the next iteration.
 
 ### Documented Features
 
