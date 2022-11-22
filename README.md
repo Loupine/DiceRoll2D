@@ -21,7 +21,9 @@
 
 ### Documented Features
 
-I used different layers and masks to manage obstacle and player collisions with each other and the ground. For example, the player collides with the ground, but obstacles do not collide with either the player or the ground. Obstacle collisions are detected with a layer mask so that they can pass through the player without affecting its velocity values
+I used different layers and masks to manage obstacle and player collisions with each other and the ground. For example, the player collides with the ground, but obstacles do not collide with either the player or the ground. Obstacle collisions are detected with a layer mask so that they can pass through the player without affecting its velocity values.
+
+I included AI-controlled objects that fly at the player at a speed dependent on the speed modifier, each having different behaviors.
 
 ### Self-Assessment
 
@@ -50,7 +52,7 @@ I used different layers and masks to manage obstacle and player collisions with 
 - [ ] ⭐ Use particle effects
 - [x] ⭐ Use different layers and masks to manage collisions and document this in the <code>README.md</code>
 - [ ] ⭐ Incorporate pop into your HUD or title screen using <code>Tween</code> or <code>AnimationPlayer</code>
-- [ ] ⭐ Include an AI-controlled character
+- [x] ⭐ Include an AI-controlled character
 - [ ] ⭐ Add a pause menu that includes, at minimum, the ability to resume or return to the main menu
 - [ ] ⭐ The game is released publicly on <code>itch.io</code>, with all the recommended accompanying text, screenshots, gameplay videos, <i>etc.</i>
 
