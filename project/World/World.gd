@@ -82,8 +82,8 @@ func _on_OutOfBoundsArea_body_entered(body : PhysicsBody2D)-> void:
 
 
 func _on_Player_player_died()-> void:
-	_restart_button.rect_position.x = 400
-	_menu_button.rect_position.x = 460
+	_restart_button.rect_position.x = 394
+	_menu_button.rect_position.x = 482
 	_player_died = true
 	_music_player.stop()
 	_background.call("stop_parallax")

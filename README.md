@@ -12,6 +12,7 @@
 - Background sprites from [acrock's Unique Pattern Background Asset Pack](https://acrock.itch.io/pattern-bg-asset-acrock), [acrock's Unique Pattern Background Asset Pack2](https://acrock.itch.io/pattern-bg2-asset-acrock), and [acrock's Sparkling Texture BG](https://acrock.itch.io/sparkinlg-bg-asset-acrock) all licensed as free as of October 30th, 2022.
 - Die sprite from [Aeynit's Fantasy Dices Pack](https://aeynit.itch.io/fantasy-dices-pack) licensed as free for any project "commercial or not" as of October 30th, 2022.
 - Siberian Herds music from [freesfx.co.uk](https://www.freesfx.co.uk/Category/Technological/231) page 2 and licensed under the [Free SFX / Free Music Tracks terms](https://www.freesfx.co.uk/Music.aspx)
+- Micro Six Font from [GGBotNet on Fontspace.com](https://www.fontspace.com/micro-six-font-f84595) and licensed under the [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=ofl)
 
 ## Project Report:
 
