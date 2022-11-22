@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 
 onready var animator : AnimationPlayer = get_node("AnimationPlayer")
+onready var audio_player : AudioStreamPlayer = get_node("MalletAudioPlayer")
 
 
 func _ready()-> void:
@@ -17,6 +18,9 @@ func move_to_player(speed_modifier : float)-> void:
 func _on_AnimationPlayer_animation_finished(anim_name)-> void:
 	if anim_name == "move_to_player":
 		animator.play("smash")
+	if anim_name == "smash":
+		audio_player.play()
+		animator.play("move_offscreen")
 
 
 func _on_SmashArea_body_entered(body : PhysicsBody2D)-> void:

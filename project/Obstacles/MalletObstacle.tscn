@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Obstacles/ObstacleSprites/mallet_facing_left_short.png" type="Texture" id=1]
 [ext_resource path="res://Obstacles/MalletObstacle.gd" type="Script" id=2]
+[ext_resource path="res://Obstacles/ObstacleAudio/mallet_bonk_sound_effect.wav" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 14.0
@@ -37,6 +38,22 @@ tracks/1/keys = {
 "values": [ -90.0 ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "move_offscreen"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 300, 490 ), Vector2( -400, 490 ) ]
+}
+
 [sub_resource type="Animation" id=4]
 resource_name = "move_to_player"
 length = 2.0
@@ -67,7 +84,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "smash"
-length = 1.5
+length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -75,10 +92,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 0.8, 1.5 ),
-"transitions": PoolRealArray( 2.2974, 2.2974, 0.108819, 1 ),
+"times": PoolRealArray( 0, 0.5, 0.8 ),
+"transitions": PoolRealArray( 2.2974, 2.2974, 0.108819 ),
 "update": 0,
-"values": [ Vector2( 500, 470 ), Vector2( 600, 430 ), Vector2( 300, 490 ), Vector2( -350, 470 ) ]
+"values": [ Vector2( 500, 470 ), Vector2( 600, 430 ), Vector2( 300, 490 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -117,8 +134,13 @@ shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )
+anims/move_offscreen = SubResource( 6 )
 anims/move_to_player = SubResource( 4 )
 anims/smash = SubResource( 5 )
+
+[node name="MalletAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 4.0
 
 [connection signal="body_entered" from="SmashArea" to="." method="_on_SmashArea_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
