@@ -32,26 +32,23 @@ func _process(_delta)-> void:
 
 func _create_new_obstacle()-> void:
 	var _obstacle_number := randi() % 5 + 1
+	var _new_obstacle : PhysicsBody2D
 	if _obstacle_number == 1:
-		var _new_ball_obstacle : PhysicsBody2D = _ball_obstacle_preload.instance()
-		_new_ball_obstacle.call("set_speed", _speed_modifier)
-		add_child(_new_ball_obstacle)
-	elif _obstacle_number == 2:
-		var _new_scissors_obstacle : PhysicsBody2D = _scissors_obstacle_preload.instance()
-		add_child(_new_scissors_obstacle)
-		_new_scissors_obstacle.call("move_to_player", _speed_modifier)
-	elif _obstacle_number == 3:
-		var _new_mallet_obstacle : PhysicsBody2D = _mallet_obstacle_preload.instance()
-		add_child(_new_mallet_obstacle)
-		_new_mallet_obstacle.call("move_to_player", _speed_modifier)
-	elif _obstacle_number == 4:
-		var _new_box_obstacle : PhysicsBody2D = _box_obstacle_preload.instance()
-		add_child(_new_box_obstacle)
-		_new_box_obstacle.call("move_to_player", _speed_modifier)
-	elif _obstacle_number == 5:
-		var _new_axe_obstacle : PhysicsBody2D = _axe_obstacle_preload.instance()
-		add_child(_new_axe_obstacle)
-		_new_axe_obstacle.call("move_to_player", _speed_modifier)
+		_new_obstacle = _ball_obstacle_preload.instance()
+		_new_obstacle.call("set_speed", _speed_modifier)
+		add_child(_new_obstacle)
+	else:
+		if _obstacle_number == 2:
+			_new_obstacle = _scissors_obstacle_preload.instance()
+		if _obstacle_number == 3:
+			_new_obstacle = _mallet_obstacle_preload.instance()
+		if _obstacle_number == 4:
+			 _new_obstacle = _box_obstacle_preload.instance()
+		if _obstacle_number == 5:
+			_new_obstacle = _axe_obstacle_preload.instance()
+		
+		add_child(_new_obstacle)
+		_new_obstacle.call("move_to_player", _speed_modifier)
 
 
 func _on_ObstacleSpawnTimer_timeout()-> void:
