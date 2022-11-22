@@ -7,13 +7,13 @@ func _ready()-> void:
 
 
 func move_to_player(speed_modifier : float)-> void:
-	var target_position := Vector2(400, position.y)
-	var final_position := Vector2(-400, position.y)
-	var time_to_move := 4.0 / speed_modifier
-	var tween := create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN_OUT)
-	var _property_tweener := tween.tween_property(self, "position", target_position, time_to_move)
-	var _interval_tweener := tween.tween_interval(1)
-	_property_tweener = tween.tween_property(self, "position", final_position, 1)
+	var _target_position := Vector2(400, position.y)
+	var _final_position := Vector2(-400, position.y)
+	var _time_to_move := 4.0 / speed_modifier
+	var _tween := create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN_OUT)
+	var _property_tweener := _tween.tween_property(self, "position", _target_position, _time_to_move)
+	var _interval_tweener := _tween.tween_interval(1)
+	_property_tweener = _tween.tween_property(self, "position", _final_position, 1)
 
 
 func _on_CutArea_body_entered(body : PhysicsBody2D)-> void:

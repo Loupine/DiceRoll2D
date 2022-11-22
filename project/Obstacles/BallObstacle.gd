@@ -4,8 +4,6 @@ extends KinematicBody2D
 var _velocity := Vector2.ZERO
 var _speed := -1000.0
 
-onready var audio_player : AudioStreamPlayer2D = get_node("BallAudioPlayer")
-
 
 func _ready()-> void:
 	position.y = 490
