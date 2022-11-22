@@ -7,6 +7,7 @@
 ## Third Party Assets
 
 - Obstacle sprites from [Robert Brooks' Physics Game Objects](https://www.gamedeveloperstudio.com/graphics/viewgraphic.php?page-name=Physics-game-objects&item=1c4p841t4d6u0y7f7a) and licensed under the [Game Developer Studio Standard License](https://www.gamedeveloperstudio.com/license.php)
+- Obstacle sound effects from [Zapsplat.com](https://www.zapsplat.com/gold-member-home/) and licensed under the [Zapsplat Standard License](https://www.zapsplat.com/license-type/standard-license/) with a Gold Membership and no attribution required as described in the license.
 - Wood sprite from [Robert Brooks' Wooden Physics Blocks](https://www.gamedeveloperstudio.com/graphics/viewgraphic.php?page-name=Wooden-physics-blocks&item=1d4m810z4w5d2e863c) and licensed under the [Game Developer Studio Standard License](https://www.gamedeveloperstudio.com/license.php)
 - Background sprites from [acrock's Unique Pattern Background Asset Pack](https://acrock.itch.io/pattern-bg-asset-acrock), [acrock's Unique Pattern Background Asset Pack2](https://acrock.itch.io/pattern-bg2-asset-acrock), and [acrock's Sparkling Texture BG](https://acrock.itch.io/sparkinlg-bg-asset-acrock) all licensed as free as of October 30th, 2022.
 - Die sprite from [Aeynit's Fantasy Dices Pack](https://aeynit.itch.io/fantasy-dices-pack) licensed as free for any project "commercial or not" as of October 30th, 2022.
@@ -16,11 +17,11 @@
 
 ### Reflection
 
-This first iteration went pretty well and without many issues, however, I found myself trying to do too much at once rather than focusing explicitly on one issue at a time. This slowed down my progress considerably by dividing up my attention and distracting me from what I should have been working on. I will definitely fix this throughout the rest of the project. I was unable to finish all the items I originally planned for the first iteration, but I still finished the core gameplay loop, added an extra obstacle, and added a basic scoring system among other things. The rest of the planned features were moved to the backlog and will be done in the next iteration.
+
 
 ### Documented Features
 
-I used different layers and masks to manage collisions with the player's left and right borders in the World scene. These borders were necessary because after the player died, the obstacles could push the player off the screen even though the player collision shape became disabled. This occurred because during the collision, the move_and_slide() method calculated a new velocity for the player from the collision. The player could also bounce off the top of the ball and be knocked out of its original position. By using the layer and mask editor, only the player can collide with the borders.
+I used different layers and masks to manage obstacle and player collisions with each other and the ground. For example, the player collides with the ground, but obstacles do not collide with either the player or the ground. Obstacle collisions are detected with a layer mask so that they can pass through the player without affecting its velocity values
 
 ### Self-Assessment
 
