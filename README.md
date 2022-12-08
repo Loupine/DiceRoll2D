@@ -1,4 +1,4 @@
-# Final Project DiceRoll Iteration 2:
+# Final Project DiceRoll Iteration 3:
 
 ## First Party Assets
 
@@ -18,11 +18,11 @@
 
 ### Reflection
 
-Overall, this iteration went relatively well with the exception of the prior week where I had less time to work than I would have liked to spend. I had a few issues in coding the behavior of each obstacle which initially slowed me down until I got the hang of it. During this iteration, I got used to tweening and used it for almost every animation besides the ball and the mallet. I was able to finish everything this iteration except adding power-ups for the player, so that will be included in the next iteration.
+This final iteration ended pretty well! I had a smaller amount of goals for this iteration because I had issues finishing everything I planned in the last two. I added three different powerups for the player, invincibility, a speed boost, and a slowdown of the game. For the invincibility powerup, I used what I learned about shaders and created a shifting color spectrum for its graphics. I also added changing parallax backgrounds that swap after a timer ends going from blue->red->yellow. 
 
 ### Documented Features
 
-I used different layers and masks to manage obstacle and player collisions with each other and the ground. For example, the player collides with the ground, but obstacles do not collide with either the player or the ground. Obstacle collisions are detected with a layer mask so that they can pass through the player without affecting its velocity values.
+I used different layers and masks to manage obstacle, player, and powerup collisions with each other and the ground. For example, the player collides with the ground, but obstacles do not collide with either the player or the ground. Obstacle collisions are detected with a layer mask so that they can pass through the player without affecting its velocity values.
 
 I included AI-controlled objects that fly at the player at a speed dependent on the speed modifier, each having different behaviors.
 
