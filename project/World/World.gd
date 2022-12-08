@@ -11,6 +11,7 @@ onready var _box_obstacle_preload := preload("res://Obstacles/BoxObstacle.tscn")
 onready var _axe_obstacle_preload := preload("res://Obstacles/AxeObstacle.tscn")
 onready var _speed_boost_powerup_preload := preload("res://PowerUps/SpeedBoostPowerUp.tscn")
 onready var _slow_down_powerup_preload := preload("res://PowerUps/SlowDownPowerUp.tscn")
+onready var _invincibility_powerup_preload := preload("res://PowerUps/InvincibilityPowerUp.tscn")
 onready var _music_player : AudioStreamPlayer = get_node("/root/MusicPlayer")
 onready var _obstacle_spawn_timer := get_node("ObstacleSpawnTimer")
 onready var _speed_modifier_increase_timer := get_node("SpeedModifierIncreaseTimer")
@@ -57,17 +58,17 @@ func _create_new_obstacle()-> void:
 
 func _slow_down()->void:
 	_speed_modifier /= 1.5
-	print(_speed_modifier)
 
 
 func _create_new_powerup()-> void:
-	_powerup_spawn_timer.stop()
-	var _powerup_number := randi() % 2 + 1
-	var _new_powerup : PhysicsBody2D 
+	var _powerup_number := randi() % 3 + 1
+	var _new_powerup : PhysicsBody2D
 	if _powerup_number == 1:
 		_new_powerup = _speed_boost_powerup_preload.instance()
 	if _powerup_number == 2:
 		_new_powerup = _slow_down_powerup_preload.instance()
+	if _powerup_number == 3:
+		_new_powerup = _invincibility_powerup_preload.instance()
 	add_child(_new_powerup)
 
 
@@ -110,5 +111,5 @@ func _on_Player_player_died()-> void:
 
 
 func _on_PowerUpSpawnTimer_timeout():
-	_powerup_spawn_timer.start(rand_range(40.0, 70.0))
+	_powerup_spawn_timer.start(rand_range(30.0, 50.0))
 	_create_new_powerup()

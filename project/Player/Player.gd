@@ -13,6 +13,11 @@ var _velocity := Vector2.ZERO
 onready var _playerCollision : CollisionShape2D = get_node("CollisionShape2D")
 onready var _animator : AnimationPlayer = get_node("AnimationPlayer")
 onready var _player_audio : AudioStreamPlayer = get_node("/root/PlayerAudio")
+onready var _invincibility_shield := get_node("InvincibilityShield")
+
+
+func _ready()->void:
+	var _ignored = PowerUpToggle.connect("invincibility_toggled", self, "enable_invincibility")
 
 
 func _physics_process(delta : float)-> void:
@@ -55,10 +60,17 @@ func increase_animation_speed()-> void:
 	_animator.playback_speed += .0005
 
 
+func enable_invincibility()->void:
+	_invincibility_shield.set_visible(true)
+
+
 func die()-> void:
-	set_collision_layer_bit(0, false)
-	set_collision_mask_bit(0, false)
-	scale.y = .10
-	_is_alive = false
-	_animator.stop()
-	emit_signal("player_died")
+	if _invincibility_shield.visible:
+		_invincibility_shield.set_visible(false)
+	else:
+		set_collision_layer_bit(0, false)
+		set_collision_mask_bit(0, false)
+		scale.y = .10
+		_is_alive = false
+		_animator.stop()
+		emit_signal("player_died")

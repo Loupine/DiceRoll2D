@@ -1,6 +1,7 @@
 extends Node
 
 signal slowed_down
+signal invincibility_toggled
 
 var _is_speed_boosted setget set_speed_boosted, get_speed_boosted
 var _activated_powerups := []
@@ -36,3 +37,7 @@ func reset_powerups()->void:
 
 func slow_down()->void:
 	emit_signal("slowed_down")
+
+
+func toggle_invincibility()->void:
+	emit_signal("invincibility_toggled")
