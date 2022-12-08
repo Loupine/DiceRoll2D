@@ -10,6 +10,7 @@ onready var _mallet_obstacle_preload := preload("res://Obstacles/MalletObstacle.
 onready var _box_obstacle_preload := preload("res://Obstacles/BoxObstacle.tscn")
 onready var _axe_obstacle_preload := preload("res://Obstacles/AxeObstacle.tscn")
 onready var _speed_boost_powerup_preload := preload("res://PowerUps/SpeedBoostPowerUp.tscn")
+onready var _slow_down_powerup_preload := preload("res://PowerUps/SlowDownPowerUp.tscn")
 onready var _music_player : AudioStreamPlayer = get_node("/root/MusicPlayer")
 onready var _obstacle_spawn_timer := get_node("ObstacleSpawnTimer")
 onready var _speed_modifier_increase_timer := get_node("SpeedModifierIncreaseTimer")
@@ -24,6 +25,7 @@ onready var _player : KinematicBody2D = get_node("Player")
 func _ready()-> void:
 	randomize()
 	_music_player.play(0)
+	var _ignored = PowerUpToggle.connect("slowed_down", self, "_slow_down")
 
 
 func _process(_delta)-> void:
@@ -53,11 +55,20 @@ func _create_new_obstacle()-> void:
 		_new_obstacle.call("move_to_player", _speed_modifier)
 
 
+func _slow_down()->void:
+	_speed_modifier /= 1.5
+	print(_speed_modifier)
+
+
 func _create_new_powerup()-> void:
 	_powerup_spawn_timer.stop()
-	var _new_powerup := _speed_boost_powerup_preload.instance()
+	var _powerup_number := randi() % 2 + 1
+	var _new_powerup : PhysicsBody2D 
+	if _powerup_number == 1:
+		_new_powerup = _speed_boost_powerup_preload.instance()
+	if _powerup_number == 2:
+		_new_powerup = _slow_down_powerup_preload.instance()
 	add_child(_new_powerup)
-	print("speed boost instanced")
 
 
 func _on_ObstacleSpawnTimer_timeout()-> void:

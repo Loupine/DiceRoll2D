@@ -13,7 +13,7 @@ func _physics_process(_delta)-> void:
 	_velocity = move_and_slide(_velocity, Vector2.UP)
 
 
-func _on_PowerUpArea_body_entered(body:PhysicsBody2D)-> void:
+func _on_PowerUpArea_body_entered(body:PhysicsBody2D):
 	if body.is_in_group("Player"):
-		PowerUpToggle.set_speed_boosted(true)
+		PowerUpToggle.slow_down()
 		queue_free()

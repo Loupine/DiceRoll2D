@@ -1,5 +1,7 @@
 extends Node
 
+signal slowed_down
+
 var _is_speed_boosted setget set_speed_boosted, get_speed_boosted
 var _activated_powerups := []
 
@@ -30,3 +32,7 @@ func _powerup_timeout()->void:
 
 func reset_powerups()->void:
 	_is_speed_boosted = false
+
+
+func slow_down()->void:
+	emit_signal("slowed_down")
