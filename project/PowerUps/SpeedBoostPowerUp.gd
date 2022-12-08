@@ -15,5 +15,5 @@ func _physics_process(_delta)-> void:
 
 func _on_PowerUpArea_body_entered(body:PhysicsBody2D)-> void:
 	if body.is_in_group("Player"):
-		PowerUpToggle.set_speed_boosted(true)
+		PowerUpToggle.boost_speed()
 		queue_free()

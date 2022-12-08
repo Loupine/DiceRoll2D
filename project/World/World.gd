@@ -79,7 +79,7 @@ func _on_ObstacleSpawnTimer_timeout()-> void:
 
 
 func _on_SpeedModifierIncreaseTimer_timeout()-> void:
-	_speed_modifier += .005
+	_speed_modifier += .003
 	if _speed_modifier >= 2.5:
 		_speed_modifier_increase_timer.stop()
 	_background.call("increase_scroll_velocity")
@@ -96,7 +96,7 @@ func _on_MenuButton_pressed()-> void:
 
 func _on_OutOfBoundsArea_body_entered(body : PhysicsBody2D)-> void:
 	body.queue_free()
-	_obstacle_spawn_timer.start(rand_range(1, 6 / _speed_modifier))
+	_obstacle_spawn_timer.start(rand_range(1, 3))
 
 
 func _on_Player_player_died()-> void:
@@ -107,7 +107,6 @@ func _on_Player_player_died()-> void:
 	_background.call("stop_parallax")
 	_speed_modifier_increase_timer.stop()
 	_powerup_spawn_timer.stop()
-	PowerUpToggle.reset_powerups()
 
 
 func _on_PowerUpSpawnTimer_timeout():

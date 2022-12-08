@@ -17,7 +17,8 @@ onready var _invincibility_shield := get_node("InvincibilityShield")
 
 
 func _ready()->void:
-	var _ignored = PowerUpToggle.connect("invincibility_toggled", self, "enable_invincibility")
+	var _power_up = PowerUpToggle.connect("invincibility_toggled", self, "enable_invincibility")
+	_power_up = PowerUpToggle.connect("speed_boosted", self, "increase_speed")
 
 
 func _physics_process(delta : float)-> void:
@@ -42,15 +43,6 @@ func _physics_process(delta : float)-> void:
 	position.y = clamp(position.y, 54, 800)
 
 
-func _process(_delta):
-	if PowerUpToggle.get_speed_boosted() and _is_alive:
-		_jump_force = 50
-		_gravity = 1.8
-	else:
-		_jump_force = 25
-		_gravity = 0.98
-
-
 func _set_bounce_force()-> int:
 	randomize()
 	return randi() % 10
@@ -62,6 +54,22 @@ func increase_animation_speed()-> void:
 
 func enable_invincibility()->void:
 	_invincibility_shield.set_visible(true)
+
+
+func increase_speed()->void:
+	_jump_force = 50
+	_gravity = 1.8
+	var speed_timer = Timer.new()
+	add_child(speed_timer)
+	speed_timer.connect("timeout", self, "_speed_timeout")
+	speed_timer.set_one_shot(true)
+	speed_timer.start(30.0)
+
+
+func _speed_timeout()->void:
+	_jump_force = 25
+	_gravity = .98
+	print("speed timeout")
 
 
 func die()-> void:
