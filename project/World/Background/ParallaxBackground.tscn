@@ -25,6 +25,7 @@ centered = false
 
 [node name="MainBackground3" type="Sprite" parent="MainLayer"]
 visible = false
+position = Vector2( 1366, 0 )
 texture = ExtResource( 5 )
 centered = false
 

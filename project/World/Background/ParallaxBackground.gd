@@ -28,9 +28,11 @@ func _on_BackgroundSwitchTimer_timeout()-> void:
 	var _tween := create_tween()
 	if _current_background_number == 1:
 		_main_background2.set_visible(true)
-		var _property_tweener := _tween.tween_property(_main_background2, "position", Vector2(0.0,0.0), 1.0)
+		var _property_tweener := _tween.tween_property(_main_background2, 
+			"position", Vector2(0.0,0.0), 0.25)
 	if _current_background_number == 2:
 		_main_background3.set_visible(true)
-		var _property_tweener := _tween.tween_property(_main_background3, "position", Vector2(0.0,0.0), 1.0)
+		var _property_tweener := _tween.tween_property(_main_background3, 
+			"position", Vector2(0.0,0.0), 0.25)
 		_background_switch_timer.stop()
 	_current_background_number += 1
